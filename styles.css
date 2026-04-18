@@ -235,3 +235,43 @@ body.dark .bg-layer {
 #startQuizBtn:hover {
     transform: scale(1.03);
 }
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.member {
+    width: 120px;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.member img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; /* 👈 makes it circular */
+    border: 2px solid white;
+}
+
+.member p {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+@media screen and (max-width: 600px) {
+    .member {
+        width: 100px;
+    }
+
+    .member img {
+        width: 70px;
+        height: 70px;
+    }
+}
