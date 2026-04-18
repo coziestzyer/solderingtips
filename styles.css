@@ -1,0 +1,237 @@
+:root {
+    --accent: #5aa9ff;
+    --text: #fff;
+    --header-height: 70px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.25);
+}
+
+.main {
+    margin-left: 0;              /* removes left bias */
+    display: flex;
+    flex-direction: column;
+    align-items: center;         /* centers all cards */
+    padding: 20px 10px;
+    padding-top: calc(var(--header-height) + 10px);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: var(--text);
+}
+
+
+body.dark {
+    background: linear-gradient(135deg, #0f172a, #020617);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -220px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    padding: 20px;
+    transition: 0.3s;
+
+    z-index: 9999;
+}
+
+.sidebar.show { left: 0; }
+
+.sidebar button {
+    width: 100%;
+    margin: 10px 0;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+
+    transition: 0.25s ease;
+    transform-origin: left center;
+}
+
+.sidebar button:hover {
+    transform: scale(1.08);  /* zoom in effect */
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
+
+.sidebar button.active-tab {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+/* Menu icon */
+.menu-icon {
+    position: fixed;
+    top: 15px;
+    left: 5px;
+    font-size: 24px;
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+/* Sections */
+.section {
+    width: 100%;
+    justify-content: center;
+    padding-top: 10px;
+
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.section.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cards */
+.card {
+    margin: 7px 7px;
+    padding: 7px 10px;   /* smaller padding */
+    border-radius: 7px;
+    transition: 0.2s ease;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    font-size: 14px;      /* smaller text feel */
+    line-height: 1.5;
+    width: 90%;
+    max-width: 420px;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 15px;
+}
+
+.logo-large {
+    width: 35%;          /* was 50% */
+    max-width: 160px;    /* keeps it controlled on large screens */
+    border-radius: 16px;
+}
+
+/* Video */
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+video {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Quiz */
+.quiz button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: white;
+}
+
+/* Dark mode button */
+#darkToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+
+    z-index: 10000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+body.dark {
+    background: none; /* removes dark overlay effect */
+}
+
+body.dark .bg-layer {
+    filter: brightness(0.5);
+}
+
+.bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url("background.jpg") center/cover no-repeat;
+
+    z-index: -1; /* stays behind everything */
+}
+
+#doneBtn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#doneBtn:hover {
+    transform: scale(1.02);
+}
+
+#startQuizBtn {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#startQuizBtn:hover {
+    transform: scale(1.03);
+}
