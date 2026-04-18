@@ -99,21 +99,14 @@ window.onload = function () {
     }
 };
 
-function showSection(id) {
-    const sections = document.querySelectorAll('.section');
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(sec => {
+            sec.classList.remove('active');
+        });
 
-    sections.forEach(sec => {
-        sec.classList.remove('active');
-    });
+        document.getElementById(id).classList.add('active');
 
-    const target = document.getElementById(id);
+        document.getElementById("sidebar").classList.remove("show");
 
-    // small delay for smooth transition
-    setTimeout(() => {
-        target.classList.add('active');
-    }, 50);
-
-    document.getElementById("sidebar").classList.remove("show");
-
-    localStorage.setItem("lastTab", id);
-}
+        localStorage.setItem("lastTab", id);
+    }
